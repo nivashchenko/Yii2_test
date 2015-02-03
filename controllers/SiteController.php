@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use app\models\EntryForm;
+use app\module\Github;
 
 class SiteController extends Controller
 {
@@ -31,7 +32,9 @@ class SiteController extends Controller
     public function actionEntry()
     {
         $model = new EntryForm;
-
+        
+        Yii::$app->session->set('pageId', 'Main');
+        
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             // данные в $model удачно проверены
 

@@ -8,7 +8,8 @@ class EntryForm extends Model
 {
     public $name;
     public $email;
-
+    public $pageId = 'Main';
+    
     public function rules()
     {
         return [
