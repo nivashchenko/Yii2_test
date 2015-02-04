@@ -1,5 +1,9 @@
 <?php
 
+namespace app\module\github;
+
+use app\module\github\Github_ApiInterface;
+
 /**
  * Abstract class for Github_Api classes
  *

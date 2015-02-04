@@ -1,5 +1,7 @@
 <?php
 
+namespace app\module\github\Api;
+
 /**
  * Listing issues, searching, editing and closing your projects issues.
  *

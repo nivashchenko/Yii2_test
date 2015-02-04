@@ -1,5 +1,7 @@
 <?php
 
+namespace app\module\github\Api;
+
 /**
  * API for accessing Pull Requests from your Git/Github repositories.
  *

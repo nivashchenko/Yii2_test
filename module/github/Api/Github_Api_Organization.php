@@ -1,5 +1,7 @@
 <?php
 
+namespace app\module\github\Api;
+
 /**
  * Searching organizations, getting organization information
  * and managing authenticated organization account information.

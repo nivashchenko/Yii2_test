@@ -47,6 +47,12 @@ class SiteController extends Controller
         
         $github = new Github_Client();
         
+        $user = $github->getUserApi()->show('ornicar');
+        
+        var_dump($user);
+        
+//        https://github.com/ornicar/php-github-api/blob/master/README.markdown
+        
 //        $gitApi = new 
         
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {

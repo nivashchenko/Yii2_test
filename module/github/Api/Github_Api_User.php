@@ -1,5 +1,8 @@
 <?php
 
+namespace app\module\github\Api;
+
+use app\module\github\Github_Api;
 /**
  * Searching users, getting user information
  * and managing authenticated user account information.

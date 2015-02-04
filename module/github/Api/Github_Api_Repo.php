@@ -1,5 +1,7 @@
 <?php
 
+namespace app\module\github\Api;
+
 /**
  * Searching repositories, getting repository information
  * and managing repository information for authenticated users.

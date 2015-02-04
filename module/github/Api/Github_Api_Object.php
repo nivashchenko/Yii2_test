@@ -1,5 +1,7 @@
 <?php
 
+namespace app\module\github\Api;
+
 /**
  * Getting full versions of specific files and trees in your Git repositories.
  *

@@ -1,5 +1,7 @@
 <?php
 
+namespace app\module\github\Api;
+
 /**
  * Getting information on specific commits,
  * the diffs they introduce, the files they've changed.

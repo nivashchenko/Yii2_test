@@ -3,6 +3,7 @@
 namespace app\module\github;
 
 use app\module\github\HttpClient\Github_HttpClient_Curl;
+use app\module\github\Api\Github_Api_User;
 
 /**
  * Simple yet very cool PHP Github client
