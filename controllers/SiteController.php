@@ -5,7 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use app\models\EntryForm;
-use app\module\Github;
+use app\module\Github\Github_Autoloader;
 
 class SiteController extends Controller
 {
@@ -34,6 +34,14 @@ class SiteController extends Controller
         $model = new EntryForm;
         
         Yii::$app->session->set('pageId', 'Main');
+        
+//        Yii::$app->autoloader;
+        
+//        var_dump(Github_Autoloader);
+        
+        Github_Autoloader::register();
+        
+//        $gitApi = new 
         
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             // данные в $model удачно проверены
