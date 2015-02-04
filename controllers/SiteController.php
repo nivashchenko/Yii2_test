@@ -5,7 +5,11 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use app\models\EntryForm;
-use app\module\Github\Github_Autoloader;
+
+use app\module\github\Autoloader;
+use app\module\github\Github_Client;
+use app\module\github\HttpClient\Github_HttpClient_Curl;
+
 
 class SiteController extends Controller
 {
@@ -39,7 +43,9 @@ class SiteController extends Controller
         
 //        var_dump(Github_Autoloader);
         
-        Github_Autoloader::register();
+        Autoloader::register();
+        
+        $github = new Github_Client();
         
 //        $gitApi = new 
         
