@@ -1,6 +1,8 @@
 <?php
 
-namespace app\module\Github;
+namespace app\module\github;
+
+use app\module\github\HttpClient\Github_HttpClient_Curl;
 
 /**
  * Simple yet very cool PHP Github client

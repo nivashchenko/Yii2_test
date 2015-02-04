@@ -1,5 +1,9 @@
 <?php
 
+namespace app\module\github\HttpClient;
+
+use app\module\github\Github_HttpClient;
+
 /**
  * Performs requests on GitHub API. API documentation should be self-explanatory.
  *

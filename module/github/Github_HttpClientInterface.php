@@ -1,5 +1,7 @@
 <?php
 
+namespace app\module\github;
+
 /**
  * Performs requests on GitHub API. API documentation should be self-explanatory.
  *
