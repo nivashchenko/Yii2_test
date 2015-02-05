@@ -6,15 +6,14 @@ use Yii;
 use yii\web\Controller;
 use app\models\EntryForm;
 
-use app\module\github\Autoloader;
-use app\module\github\Github_Client;
-use app\module\github\HttpClient\Github_HttpClient_Curl;
+use app\module\Github\Client;
 
 
 class SiteController extends Controller
 {
     public function actionIndex()
     {
+        return "test";
         return $this->render('index');
     }
 
@@ -39,21 +38,20 @@ class SiteController extends Controller
         
         Yii::$app->session->set('pageId', 'Main');
         
-//        Yii::$app->autoloader;
+        $client = new Client();
         
-//        var_dump(Github_Autoloader);
+        $repositories = $client->api('user')->repositories('ornicar');
         
-        Autoloader::register();
+//        $AuthGitHub = $github->authenticate(nivashchenko, 'Qeyuio00', AUTH_HTTP_PASSWORD);
+//        
+//        $repositories = $client->api('user')->repositories('ornicar');
+//        
+//        var_dump($AuthGitHub);
         
-        $github = new Github_Client();
-        
-        $user = $github->getUserApi()->show('ornicar');
-        
-        var_dump($user);
+        var_dump($repositories);
         
 //        https://github.com/ornicar/php-github-api/blob/master/README.markdown
-        
-//        $gitApi = new 
+
         
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             // данные в $model удачно проверены
