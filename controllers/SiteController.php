@@ -1,20 +1,31 @@
 <?php
 
+        
+//        https://github.com/ornicar/php-github-api/blob/master/README.markdown
+
 namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
 use app\models\EntryForm;
-
-use app\module\Github\Client;
+use app\models\SearchForm;
 
 
 class SiteController extends Controller
 {
     public function actionIndex()
     {
-        return "test";
+//        return "test";
         return $this->render('index');
+    }
+    
+    public function actionMain()
+    {
+        Yii::$app->session->set('pageId', 'Main');
+        
+        $model = new SearchForm();
+        
+        return $this->render('main', array('model' => $model));
     }
 
     public function actionHelloWorld()
@@ -35,23 +46,6 @@ class SiteController extends Controller
     public function actionEntry()
     {
         $model = new EntryForm;
-        
-        Yii::$app->session->set('pageId', 'Main');
-        
-        $client = new Client();
-        
-        $repositories = $client->api('user')->repositories('ornicar');
-        
-//        $AuthGitHub = $github->authenticate(nivashchenko, 'Qeyuio00', AUTH_HTTP_PASSWORD);
-//        
-//        $repositories = $client->api('user')->repositories('ornicar');
-//        
-//        var_dump($AuthGitHub);
-        
-        var_dump($repositories);
-        
-//        https://github.com/ornicar/php-github-api/blob/master/README.markdown
-
         
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             // данные в $model удачно проверены

@@ -38,10 +38,14 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-//        'urlManager' => [
-//            'enablePrettyUrl' => true,
-//            'showScriptName' => false,
-//        ],
+        'urlManager' => [
+                'class'=>'yii\web\UrlManager',
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+                'rules' => [
+                   //Здесь будет описание правил ЧПУ
+                ],
+            ],
     ],
     'params' => $params,
 ];

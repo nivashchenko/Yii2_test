@@ -5,6 +5,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\controllers;
+use yii\bootstrap\ActiveForm;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -37,9 +38,10 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
+//                    ['label' => 'Home', 'url' => [Yii::$app->homeUrl]],
+//                    ['label' => 'About', 'url' => ['/site/about']],
+//                    ['label' => 'Contact', 'url' => ['/site/contact']],
                     ['label' => 'Home', 'url' => [Yii::$app->homeUrl]],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
@@ -47,6 +49,7 @@ AppAsset::register($this);
                             'linkOptions' => ['data-method' => 'post']],
                 ],
             ]);
+            
             NavBar::end();
         ?>
 
