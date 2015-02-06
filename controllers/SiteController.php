@@ -2,6 +2,7 @@
 
         
 //        https://github.com/ornicar/php-github-api/blob/master/README.markdown
+//        https://github.com/KnpLabs/php-github-api/tree/master/doc
 
 namespace app\controllers;
 
@@ -15,7 +16,6 @@ class SiteController extends Controller
 {
     public function actionIndex()
     {
-//        return "test";
         return $this->render('index');
     }
     
@@ -24,8 +24,10 @@ class SiteController extends Controller
         Yii::$app->session->set('pageId', 'Main');
         
         $model = new SearchForm();
-        
-        return $this->render('main', array('model' => $model));
+        $model->main();
+
+        return $this->render('repo', array('model' => $model));
+
     }
 
     public function actionHelloWorld()

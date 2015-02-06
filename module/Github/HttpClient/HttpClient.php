@@ -180,12 +180,12 @@ class HttpClient implements HttpClientInterface
 
     protected function createRequest($httpMethod, $path, $body = null, array $headers = array(), array $options = array())
     {
+        $path .= '?q=' . $options['query']['q'] . '+language:php';
         return $this->client->createRequest(
             $httpMethod,
             $path,
             array_merge($this->headers, $headers),
-            $body,
-            $options
+            $body
         );
     }
 }

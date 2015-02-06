@@ -4,7 +4,7 @@ namespace app\module\Github\HttpClient\Listener;
 
 use app\module\Github\Exception\TwoFactorAuthenticationRequiredException;
 use app\module\Github\HttpClient\Message\ResponseMediator;
-use Guzzle\Http\Common\Event;
+use Guzzle\Common\Event;
 use Guzzle\Http\Message\Response;
 
 use app\module\Github\Exception\ApiLimitExceedException;
