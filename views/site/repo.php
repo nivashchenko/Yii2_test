@@ -28,22 +28,20 @@ $data = $model->getRepos();
 $contributors = $model->getContributors();
 
 ?>
-<!--
-<?= Html::encode('test') ?>
--->
-<table width="80%" >
-    <tr>
-        <td>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
             <h2><?= $data['full_name'] ?></h2>
             <br />
-        </td>
-        <td>
+        </div>
+        <div class="col-lg-6 col-md-6">
             <h2><?= Html::encode('Contributors') ?></h2>
             <br />
-        </td>
-    </tr>
-    <tr>
-        <td>
+        </div>
+    </div>
+
+    <div class="row row-height">
+        <div class="col-lg-6 col-md-6 height-480">
             <p>Description: <?= $data['description'] ?> </p>
             <p>Watchers: <?= $data['watchers'] ?> </p>
             <p>Forks: <?= $data['forks_count'] ?> </p>
@@ -51,18 +49,15 @@ $contributors = $model->getContributors();
             <p>Home page: <a href="<?= $data['homepage'] ?>"><?= $data['homepage'] ?></a> </p>
             <p>GitHub repo: <a href="<?= $data['html_url'] ?>"><?= $data['html_url'] ?></a> </p>
             <p>Created at: <?= $data['created_at'] ?> </p>
-        </td>
-        <td>
+        </div>
+        <div class="col-lg-6 col-md-6 height-480">
             <?php
                 foreach ( $contributors as $contributor )
                 {
                     $url = Yii::$app->urlManager->createUrl(['user/info', 'name' => $contributor['login']]);
-                    var_dump($url);
                     echo '<p><a href="' . $url . '">' . $contributor['login'] . '</a></p>';
                 }
             ?>
-        </td>
-    </tr>
-
-        
-</table>
+        </div>
+    </div>
+</div>

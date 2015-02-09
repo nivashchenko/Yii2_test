@@ -13,7 +13,6 @@ class GitUser
     {
         $client = new Client();
         $users = $client->api('user')->show($name);
-        var_dump($users);
     }
     
 }
