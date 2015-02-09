@@ -12,7 +12,11 @@ class UserController extends Controller
     
     public function actionInfo($name)
     {
+        Yii::$app->session->set('pageId', 'User');
+        
         $model = new GitUser($name);
+        $userInfo = $model->setName($name)->getInfo();
+        return $this->render('info', array('data' => $userInfo));
         
     }
     

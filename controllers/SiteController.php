@@ -16,7 +16,9 @@ class SiteController extends Controller
 {
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->redirect('/site/main');
+//        return $this->render('index');
+        
     }
     
     public function actionMain()
@@ -29,35 +31,13 @@ class SiteController extends Controller
         return $this->render('repo', array('model' => $model));
 
     }
-
-    public function actionHelloWorld()
-    {
-        return 'Hello World';
-    }
     
-    public function actionSay($message = 'Hello')
+    public function actionSearch($search)
     {
-        return $this->render('say', ['message' => $message]);
-    }
-    
-    public function actionTest()
-    {
-        return 'test';
-    }
-    
-    public function actionEntry()
-    {
-        $model = new EntryForm;
+        Yii::$app->session->set('pageId', 'Search');
         
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // данные в $model удачно проверены
-
-            // делаем что-то полезное с $model ...
-
-            return $this->render('entry-confirm', ['model' => $model]);
-        } else {
-            // либо страница отображается первый раз, либо есть ошибка в данных
-            return $this->render('entry', ['model' => $model]);
-        }
+        $model = new SearchForm();
+        $res = $model->search($search);
+        return $this->render('search', array('data' => $res));
     }
 }

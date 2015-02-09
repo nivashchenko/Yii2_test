@@ -29,26 +29,39 @@ AppAsset::register($this);
         <?php
             NavBar::begin([
                 'brandLabel' => 'Mobidev Github browser >>> ' . Yii::$app->session->get('pageId'),
-//                'brandUrl' => Yii::$app->homeUrl,
-                'brandUrl' => Yii::$app->request->url,
+                'brandUrl' => Yii::$app->homeUrl . 'site/main',
+//                'brandUrl' => Yii::$app->request->url,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => [
+//            echo Nav::widget([
+//                'options' => ['class' => 'navbar-nav navbar-right'],
+//                'items' => [
 //                    ['label' => 'Home', 'url' => [Yii::$app->homeUrl]],
 //                    ['label' => 'About', 'url' => ['/site/about']],
 //                    ['label' => 'Contact', 'url' => ['/site/contact']],
-                    ['label' => 'Home', 'url' => [Yii::$app->homeUrl]],
-                    Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
-                ],
-            ]);
+//                    ['label' => 'Home', 'url' => [Yii::$app->homeUrl]],
+//                    Yii::$app->user->isGuest ?
+//                        ['label' => 'Login', 'url' => ['/site/login']] :
+//                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+//                            'url' => ['/site/logout'],
+//                            'linkOptions' => ['data-method' => 'post']],
+//                ],
+//            ]);
+            $url = Yii::$app->urlManager->createUrl(['site/search']);
+            echo '<form method="GET" action="' . $url . '">'
+                    . '<div class="navbar-nav navbar-right">'
+                    . '<input name="search" type="search" class="form-control glyphicon-search" placeholder="Search">'
+                    . '</div>'
+                . '</form>';
+            
+//            echo '<div class="input-group navbar-nav navbar-right">'
+//                . '<input type="text" class="form-control"/>'
+//                . '<span class="input-group-addon">'
+//                . '<i class="fa fa-search"></i>'
+//                . '</span>'
+//                . '</div>';
             
             NavBar::end();
         ?>
