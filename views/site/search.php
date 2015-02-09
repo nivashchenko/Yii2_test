@@ -7,6 +7,7 @@ use yii\helpers\Html;
 <div class="container">
 
     <div class="row">
+        <div class="col-lg-8 col-lg-offset-2"
         <div class="row">
             <div class="col-lg-4">
                 <a href="#">Name</a>
