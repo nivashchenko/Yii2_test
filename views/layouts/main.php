@@ -35,33 +35,17 @@ AppAsset::register($this);
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
-//            echo Nav::widget([
-//                'options' => ['class' => 'navbar-nav navbar-right'],
-//                'items' => [
-//                    ['label' => 'Home', 'url' => [Yii::$app->homeUrl]],
-//                    ['label' => 'About', 'url' => ['/site/about']],
-//                    ['label' => 'Contact', 'url' => ['/site/contact']],
-//                    ['label' => 'Home', 'url' => [Yii::$app->homeUrl]],
-//                    Yii::$app->user->isGuest ?
-//                        ['label' => 'Login', 'url' => ['/site/login']] :
-//                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-//                            'url' => ['/site/logout'],
-//                            'linkOptions' => ['data-method' => 'post']],
-//                ],
-//            ]);
+
             $url = Yii::$app->urlManager->createUrl(['site/search']);
-            echo '<form method="GET" action="' . $url . '">'
-                    . '<div class="navbar-nav navbar-right">'
-                    . '<input name="search" type="search" class="form-control glyphicon-search" placeholder="Search">'
+
+            echo '<form class="navbar-form navbar-right" role="search" method="GET" action="' . $url . '">'
+                    . '<div class="form-group">'
+                    . '<input type="hidden" name="page" value="1">'
+                    . '<input type="text" class="form-control" name="search" placeholder="Search">'
                     . '</div>'
-                . '</form>';
-            
-//            echo '<div class="input-group navbar-nav navbar-right">'
-//                . '<input type="text" class="form-control"/>'
-//                . '<span class="input-group-addon">'
-//                . '<i class="fa fa-search"></i>'
-//                . '</span>'
-//                . '</div>';
+                    . '<button type="submit" class="btn btn-default">Submit</button>'
+                  . '</form>';
+
             
             NavBar::end();
         ?>

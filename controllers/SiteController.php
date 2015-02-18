@@ -32,12 +32,32 @@ class SiteController extends Controller
 
     }
     
-    public function actionSearch($search)
+    public function actionError()
     {
+        return 'error';
+    }
+    
+    public function actionInfo($name, $fullName)
+    {
+        Yii::$app->session->set('pageId', 'Browser');
+        
+        
+    }
+    
+    public function actionSearch($search, $page = false)
+    {        
         Yii::$app->session->set('pageId', 'Search');
         
         $model = new SearchForm();
-        $res = $model->search($search);
+        if ( $page )
+        {
+            $res = $model->searchPaged($search, $page);
+        }
+        else
+        {
+            $res['data'] = $model->search($search);
+        }
+        
         return $this->render('search', array('data' => $res));
     }
 }

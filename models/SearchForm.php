@@ -4,6 +4,7 @@ namespace app\models;
 
 use yii\base\Model;
 use app\module\Github\Client;
+use app\module\Github\ResultPager;
 
 class SearchForm extends Model
 {
@@ -45,9 +46,25 @@ class SearchForm extends Model
         $client = new Client();
 
         $repos = $client->api('search')->repositories($str . ' language:php');
-        $repos = $repos ? $repos : array();
+        $repos = $repos ? $repos : array('items' => array());
         
         return $repos['items'];
+    }
+    
+    public function searchPaged($str, $page) 
+    {
+        $client = new Client();
+        $search = $client->api('search'); // ->repositories($str . ' language:php');
+        $paginator  = new ResultPager($client);
+        $parameters = array($str . ' language:php');
+        
+        $repos = $paginator->fetch($search, 'repositories', $parameters);
+        
+        $result['info'] = $repos['items'];
+        $result['previosPage'] = $paginator->hasPrevious();
+        $result['nextPage'] = $paginator->hasNext();
+//        var_dump($result['info']);
+        return $result;
     }
     
     public function getRepos() 
