@@ -50,23 +50,7 @@ class SearchForm extends Model
         
         return $repos['items'];
     }
-    
-    public function searchPaged($str, $page) 
-    {
-        $client = new Client();
-        $search = $client->api('search'); // ->repositories($str . ' language:php');
-        $paginator  = new ResultPager($client);
-        $parameters = array($str . ' language:php');
-        
-        $repos = $paginator->fetch($search, 'repositories', $parameters);
-        
-        $result['info'] = $repos['items'];
-        $result['previosPage'] = $paginator->hasPrevious();
-        $result['nextPage'] = $paginator->hasNext();
-//        var_dump($result['info']);
-        return $result;
-    }
-    
+       
     public function getRepos() 
     {
         return $this->repos;

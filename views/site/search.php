@@ -1,8 +1,8 @@
 <?php
 
 //var_dump($data[0]);
-$info = $data['info'] ? $data['info'] : $data;
-foreach ( $info as $res )
+
+foreach ( $data as $res )
 {
 ?>
 <div class="panel panel-default">
@@ -37,22 +37,6 @@ foreach ( $info as $res )
                     </div>
                 </div>
             </div>
-    </div>
-</div>
-
-
-<?php
-}
-    if ( is_array($data) )
-    {
-?>
-<div class="row">
-    <div class="col-lg-4 col-lg-offset-4">
-        <ul class="nav nav-pills">
-            <li role="presentation"><a href="#">Previous</a></li>
-            <li role="presentation"><a href="#">Show All</a></li>
-            <li role="presentation"><a href="#">Next</a></li>
-          </ul>
     </div>
 </div>
 <?php

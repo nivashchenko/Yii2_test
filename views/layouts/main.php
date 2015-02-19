@@ -40,7 +40,6 @@ AppAsset::register($this);
 
             echo '<form class="navbar-form navbar-right" role="search" method="GET" action="' . $url . '">'
                     . '<div class="form-group">'
-                    . '<input type="hidden" name="page" value="1">'
                     . '<input type="text" class="form-control" name="search" placeholder="Search">'
                     . '</div>'
                     . '<button type="submit" class="btn btn-default">Submit</button>'

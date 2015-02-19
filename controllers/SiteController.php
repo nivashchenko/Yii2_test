@@ -44,19 +44,12 @@ class SiteController extends Controller
         
     }
     
-    public function actionSearch($search, $page = false)
+    public function actionSearch($search)
     {        
         Yii::$app->session->set('pageId', 'Search');
         
         $model = new SearchForm();
-        if ( $page )
-        {
-            $res = $model->searchPaged($search, $page);
-        }
-        else
-        {
-            $res['data'] = $model->search($search);
-        }
+        $res = $model->search($search);
         
         return $this->render('search', array('data' => $res));
     }
