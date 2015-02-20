@@ -4,13 +4,16 @@
 
 foreach ( $data as $res )
 {
+    $repoUrl = Yii::$app->urlManager->createUrl(['site/repo'
+                                            , 'group' => $res['owner']['login']
+                                            , 'project' => $res['name']]);
 ?>
 <div class="panel panel-default">
     <div class="panel-body">
 
             <div class="row">
                 <div class="col-lg-4">
-                    <a href="#"><?=$res['name']?></a>
+                    <a href="<?=$repoUrl?>"><?=$res['name']?></a>
                 </div>
                 <div class="col-lg-4">
                     <a href="#"><?=$res['homepage']?></a>

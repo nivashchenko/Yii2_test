@@ -10,6 +10,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\EntryForm;
 use app\models\SearchForm;
+use yii\base\ErrorException;
 
 
 class SiteController extends Controller
@@ -29,12 +30,28 @@ class SiteController extends Controller
         $model->main();
 
         return $this->render('repo', array('model' => $model));
-
+    }
+    
+    public function actionRepo($group, $project)
+    {
+        var_dump($group);
+        var_dump($project);
+        
+        Yii::$app->session->set('pageId', 'Browser');
+        
+        $model = new SearchForm();
+        $model->repo($group, $project);
+        
+        return $this->render('repo', array('model' => $model));
     }
     
     public function actionError()
     {
-        return 'error';
+        $exception = Yii::$app->errorHandler->exception;
+            if ($exception !== null) {
+                var_dump($exception);
+//                return $this->render('error', ['exception' => $exception]);
+            }
     }
     
     public function actionInfo($name, $fullName)

@@ -21,23 +21,18 @@ class SearchForm extends Model
     
     public function main()
     {
-        $client = new Client();
-
-        $repos = $client->api('search')->repositories('yii2 language:php');
+        $this->repo('yiisoft', 'yii2');
         
-
-        foreach ($repos['items'] as $value) 
-        {
-            if ( 'yiisoft/yii2' == $value["full_name"] )
-            {
-                $contributors = $client->api('repo')->contributors('yiisoft', 'yii2');
-                $this->repos = $value;
-                $this->contributors = $contributors;
-                break;
-            }
-            else
-                return false;
-        }
+        return true;
+    }
+    
+    public function repo($group, $project)
+    {
+        $client = new Client();
+        
+        $this->contributors = $client->api('repo')->contributors($group, $project);
+        $this->repos = $client->api('repo')->show($group, $project);
+        
         return true;
     }
     
