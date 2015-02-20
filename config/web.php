@@ -43,7 +43,7 @@ $config = [
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
                 'rules' => [
-                   //Здесь будет описание правил ЧПУ
+                   ['class' => 'yii\rest\UrlRule', 'controller' => 'like'],
                 ],
             ],
     ],
