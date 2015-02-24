@@ -1,6 +1,6 @@
 <?php
 
-//var_dump($data[0]);
+var_dump($data[0]);
 
 foreach ( $data as $res )
 {

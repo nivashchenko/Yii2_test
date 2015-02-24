@@ -17,19 +17,12 @@ class SiteController extends Controller
 {
     public function actionIndex()
     {
-        $this->redirect('/site/main');
-//        return $this->render('index');
-        
-    }
-    
-    public function actionMain()
-    {
         Yii::$app->session->set('pageId', 'Main');
         
         $model = new SearchForm();
-        $model->main();
+        $model->repo('yiisoft', 'yii2');
 
-        return $this->render('repo', array('model' => $model));
+        return $this->render('repo', array('model' => $model));  
     }
     
     public function actionRepo($group, $project)
@@ -49,25 +42,7 @@ class SiteController extends Controller
     {
         $exception = Yii::$app->errorHandler->exception;
             if ($exception !== null) {
-                var_dump($exception);
-//                return $this->render('error', ['exception' => $exception]);
+                return $this->render('error', ['exception' => $exception]);
             }
-    }
-    
-    public function actionInfo($name, $fullName)
-    {
-        Yii::$app->session->set('pageId', 'Browser');
-        
-        
-    }
-    
-    public function actionSearch($search)
-    {        
-        Yii::$app->session->set('pageId', 'Search');
-        
-        $model = new SearchForm();
-        $res = $model->search($search);
-        
-        return $this->render('search', array('data' => $res));
     }
 }

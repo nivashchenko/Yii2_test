@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 
+var_dump($data);
+
 ?>
 
 <div class="container">

@@ -2,9 +2,8 @@
 
 namespace app\models;
 
-use yii\base\Model;
+use \yii\db\ActiveRecord;
 
-class Like extends Model
+class Like extends ActiveRecord
 {
-    
 }

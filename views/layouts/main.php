@@ -29,14 +29,14 @@ AppAsset::register($this);
         <?php
             NavBar::begin([
                 'brandLabel' => 'Mobidev Github browser >>> ' . Yii::$app->session->get('pageId'),
-                'brandUrl' => Yii::$app->homeUrl . 'site/main',
+                'brandUrl' => Yii::$app->homeUrl,
 //                'brandUrl' => Yii::$app->request->url,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
 
-            $url = Yii::$app->urlManager->createUrl(['site/search']);
+            $url = Yii::$app->urlManager->createUrl(['search']);
 
             echo '<form class="navbar-form navbar-right" role="search" method="GET" action="' . $url . '">'
                     . '<div class="form-group">'

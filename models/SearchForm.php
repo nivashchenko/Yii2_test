@@ -19,13 +19,6 @@ class SearchForm extends Model
 //        ];
 //    }
     
-    public function main()
-    {
-        $this->repo('yiisoft', 'yii2');
-        
-        return true;
-    }
-    
     public function repo($group, $project)
     {
         $client = new Client();
