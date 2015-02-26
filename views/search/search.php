@@ -1,6 +1,6 @@
 <?php
 
-var_dump($data[0]);
+//var_dump($data[0]);
 
 foreach ( $data as $res )
 {
@@ -36,7 +36,7 @@ foreach ( $data as $res )
                 </div>
                 <div class="col-lg-4">
                     <div class="btn-group btn-group-sm" role="group" aria-label="test">
-                        <button type="button" class="btn btn-default">Middle</button>
+                        <button type="button" class="btn btn-default like" value="<?=$res['id']?>">Middle</button>
                     </div>
                 </div>
             </div>
