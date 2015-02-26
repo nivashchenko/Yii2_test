@@ -44,7 +44,10 @@ $config = [
                 'showScriptName' => false,
                 'rules' => [
                    ['class' => 'yii\rest\UrlRule', 
-                    'controller' => 'like'],
+                    'controller' => 'like',
+                    'pluralize'=>false,
+                    'except' => ['delete', 'update', 'change', 'view'],
+                    ],
                 ],
             ],
     ],
