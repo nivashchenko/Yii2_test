@@ -36,7 +36,7 @@ foreach ( $data as $res )
                 </div>
                 <div class="col-lg-4">
                     <div class="btn-group btn-group-sm" role="group" aria-label="test">
-                        <button type="button" class="btn btn-default like" value="<?=$res['id']?>">Middle</button>
+                        <button type="button" class="btn btn-default like" id="<?=$res['id']?>" value="<?=$res['id']?>">Like</button>
                     </div>
                 </div>
             </div>
