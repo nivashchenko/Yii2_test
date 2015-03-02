@@ -8,6 +8,12 @@ use yii\helpers\Html;
     <div class="row">
         <div class="col-lg-4">
             <img src="<?=$data['avatar_url']?>" class="img-thumbnail img-responsive" />
+                <br /><br />
+            <div class="btn-group btn-group-justified" role="group">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default like" id="<?=$data['id']?>" value="<?=$data['id']?>">Like</button>
+                </div>
+            </div>
         </div>
 
         <div class="col-lg-6 col-lg-offset-1">

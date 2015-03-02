@@ -27,6 +27,11 @@ $contributors = $model->getContributors();
             <p>Home page: <a href="<?= $data['homepage'] ?>"><?= $data['homepage'] ?></a> </p>
             <p>GitHub repo: <a href="<?= $data['html_url'] ?>"><?= $data['html_url'] ?></a> </p>
             <p>Created at: <?= $data['created_at'] ?> </p>
+            
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default like" id="<?=$data['id']?>" value="<?=$data['id']?>">Like</button>
+            </div>
+            
         </div>
         <div class="col-lg-6 col-md-6 height-480">
             <?php
