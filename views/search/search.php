@@ -1,7 +1,5 @@
 <?php
 
-//var_dump($data[0]);
-
 foreach ( $data as $res )
 {
     $repoUrl = Yii::$app->urlManager->createUrl(['site/repo'

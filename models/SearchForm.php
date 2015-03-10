@@ -12,13 +12,6 @@ class SearchForm extends Model
     private $repos;
     private $contributors;
     
-//    public function rules()
-//    {
-//        return [
-//            [['searchStr'], 'required'],
-//        ];
-//    }
-    
     public function repo($group, $project)
     {
         $client = new Client();

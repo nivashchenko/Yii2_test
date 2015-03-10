@@ -27,9 +27,6 @@ class SiteController extends Controller
     
     public function actionRepo($group, $project)
     {
-        var_dump($group);
-        var_dump($project);
-        
         Yii::$app->session->set('pageId', 'Browser');
         
         $model = new SearchForm();
